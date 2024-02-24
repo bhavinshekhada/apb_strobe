@@ -14,7 +14,8 @@ output             pwrite,
 output [31:0]      pwdataa, 
 output [31:0]      prdata,     
 output [31:0]      paddr,
-output [1:0]            strobe
+output [1:0]            strobe,
+output             master_ready
 );
 
 reg                r_penable=0;
@@ -75,4 +76,5 @@ always @(posedge pclk) begin
  assign prdata = r_prdata;
  assign pwdataa= r_pwdataa;
  assign strobe = r_strobe;
+ assign master_ready = pready;
 endmodule
